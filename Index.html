@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f5f4f0">
+    <meta name="description" content="Explora Pokémon, busca tus favoritos y descubre sus detalles en español.">
+    <title>Pokédex — Pokémon en español</title>
+    <link rel="manifest" href="./manifest.json">
+    <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
+    <link rel="apple-touch-icon" href="./icons/icon-192.png">
+    <link rel="stylesheet" href="./Css/styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="#home" aria-label="Pokédex, inicio">
+            <span class="brand-mark" aria-hidden="true">P</span>
+            <span>p<span class="brand-accent">ō</span>kedex</span>
+        </a>
+        <nav class="main-nav" aria-label="Navegación principal">
+            <a class="nav-link is-active" href="#home">Home</a>
+            <a class="nav-link" href="#about">About</a>
+            <a class="nav-link" href="#blog">Blog</a>
+        </nav>
+        <a class="header-cta" href="#pokemon">Explorar <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main id="home">
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-copy">
+                <p class="eyebrow"><span class="eyebrow-dot"></span> Tu guía Pokémon en español</p>
+                <h1 id="hero-title">El mundo Pokémon,<br><span>en tus manos.</span></h1>
+                <p class="hero-description">Que onda pa recuerda que esto es exceso de coetazo JAJAJA</p>
+                <a class="primary-button" href="#pokemon">Ver colección <span aria-hidden="true">↓</span></a>
+                <button id="install-button" class="install-button" type="button" hidden>Instalar app</button>
+                <div class="hero-note"><span class="note-line"></span> El esfuerzo no da de comer </div>
+            </div>
+            <div class="hero-art" aria-hidden="true">
+                <div class="hero-orbit orbit-one"></div>
+                <div class="hero-orbit orbit-two"></div>
+                <div class="hero-spark spark-one">✳</div>
+                <div class="hero-spark spark-two">✦</div>
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="">
+                <span class="hero-art-caption">#025 · Pikachu</span>
+            </div>
+            <div class="hero-index" aria-hidden="true">01 <span>/</span> 151</div>
+        </section>
+
+        <section class="collection-section" id="pokemon" aria-labelledby="collection-title">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">La colección</p>
+                    <h2 id="collection-title">Todos tus favoritos<span>.</span></h2>
+                </div>
+                <p class="section-intro">De Bulbasaur a Zubat, encuentra cada Pokémon por su nombre.</p>
+            </div>
+
+            <div class="collection-controls">
+                <label class="search-box">
+                    <span class="search-icon" aria-hidden="true">⌕</span>
+                    <span class="visually-hidden">Buscar Pokémon</span>
+                    <input id="pokemon-search" type="search" placeholder="Busca un Pokémon..." autocomplete="off">
+                    <kbd>/</kbd>
+                </label>
+                <p class="sort-label"><span aria-hidden="true">↕</span> Ordenados alfabéticamente</p>
+            </div>
+
+            <p id="catalog-status" class="catalog-status" role="status" aria-live="polite">Cargando la colección Pokémon...</p>
+            <div id="pokemon-grid" class="pokemon-grid" aria-live="polite"></div>
+        </section>
+
+        <section class="about-section" id="about" aria-labelledby="about-title">
+            <p class="eyebrow">Sobre esta Pokédex</p>
+            <h2 id="about-title">Un mundo por descubrir<span>.</span></h2>
+            <p>Una colección sencilla para explorar Pokémon a tu ritmo. Busca por nombre, elige una tarjeta y conoce sus detalles en español.</p>
+        </section>
+
+        <section class="blog-section" id="blog" aria-labelledby="blog-title">
+            <div>
+                <p class="eyebrow">Desde el blog</p>
+                <h2 id="blog-title">Cada Pokémon tiene una historia<span>.</span></h2>
+            </div>
+            <p>Empieza por explorar la colección: sus descripciones y datos te esperan en cada tarjeta.</p>
+            <a href="#pokemon" aria-label="Explorar la colección Pokémon">Explorar colección <span aria-hidden="true">↗</span></a>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <a class="brand footer-brand" href="#home"><span class="brand-mark" aria-hidden="true">P</span><span>p<span class="brand-accent">ō</span>kedex</span></a>
+        <p>Hecho para quienes todavía tienen que atraparlos a todos.</p>
+        <span>Datos e imágenes: PokéAPI</span>
+    </footer>
+
+    <dialog id="pokemon-dialog" class="pokemon-dialog" aria-labelledby="dialog-name">
+        <button class="dialog-close" type="button" aria-label="Cerrar detalles">×</button>
+        <div id="pokemon-detail" class="pokemon-detail"></div>
+    </dialog>
+
+    <script src="./JavaScript/app.js" defer></script>
+</body>
+</html>
