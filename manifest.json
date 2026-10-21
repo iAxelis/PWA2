@@ -1,10 +1,10 @@
 {
-  "id": "./Index.html",
+  "id": "./",
   "name": "Pokédex — Pokémon en español",
   "short_name": "Pokédex",
   "description": "Explora Pokémon, busca tus favoritos y descubre sus detalles en español.",
   "lang": "es",
-  "start_url": "./Index.html",
+  "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "background_color": "#f5f4f0",

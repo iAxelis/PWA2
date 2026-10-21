@@ -1,7 +1,7 @@
 const CACHE_NAME = "pokedex-pwa-v1";
 const API_ORIGIN = "https://pokeapi.co";
 const APP_SHELL = [
-    "./Index.html",
+    "./index.html",
     "./manifest.json",
     "./Css/styles.css",
     "./JavaScript/app.js",
@@ -69,14 +69,14 @@ self.addEventListener("fetch", (event) => {
                 if (response.ok) {
                     const copy = response.clone();
                     caches.open(CACHE_NAME)
-                        .then((cache) => cache.put("./Index.html", copy))
+                        .then((cache) => cache.put("./index.html", copy))
                         .catch((error) => console.error("No se pudo actualizar la página guardada para uso sin conexión.", error));
                 }
                 return response;
             })
                 .catch(async () => {
                     const cachedPage = await caches.match(event.request);
-                    return cachedPage || caches.match("./Index.html");
+                    return cachedPage || caches.match("./index.html");
                 })
         );
         return;
