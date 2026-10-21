@@ -23,13 +23,16 @@
     };
     let pokemon = [];
     let installPrompt = null;
+    let appInstalled = false;
 
     function isAppInstalled() {
-        return window.matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
+        return appInstalled
+            || window.matchMedia("(display-mode: standalone)").matches
+            || navigator.standalone === true;
     }
 
     function updateInstallButton() {
-        installButton.hidden = isAppInstalled() || !installPrompt;
+        installButton.hidden = isAppInstalled();
     }
 
     window.addEventListener("beforeinstallprompt", (event) => {
@@ -40,6 +43,9 @@
 
     installButton.addEventListener("click", async () => {
         if (!installPrompt) {
+            window.alert(
+                "Este navegador no puede abrir el aviso de instalación desde la página. En Chrome o Edge para computadora, usa el icono de instalar de la barra de direcciones o el menú > “Instalar Pokédex”. En iPhone o iPad, toca Compartir > “Agregar a pantalla de inicio”."
+            );
             return;
         }
 
@@ -57,10 +63,12 @@
     });
 
     window.addEventListener("appinstalled", () => {
+        appInstalled = true;
         installPrompt = null;
         updateInstallButton();
     });
 
+    window.matchMedia("(display-mode: standalone)").addEventListener("change", updateInstallButton);
     updateInstallButton();
 
     if ("serviceWorker" in navigator) {
